@@ -2,8 +2,15 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const BASE_URL = 'http://jumen-jwt-auth.local/';
+
 export const environment = {
-  production: false
+  production: false,
+  API: {
+      'apiBase': BASE_URL,
+      'apiAuth': BASE_URL + 'auth',
+      'apiAuthor': BASE_URL + '/api'
+  }
 };
 
 /*

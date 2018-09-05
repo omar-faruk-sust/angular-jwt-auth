@@ -1,0 +1,33 @@
+<div class="container" id="LoginForm">
+    <h1 class="form-heading">login Form</h1>
+    <div class="login-form">
+        <div class="main-div">
+            <div class="panel">
+                <h2>Login</h2>
+                <p>Please enter your email and password</p>
+            </div>
+            <form *ngIf="loginForm" [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group">
+                    <input type="email" class="form-control" formControlName="email" id="inputEmail" placeholder="Email Address">
+                    <p *ngIf="this.submitted && loginForm.controls['email'].hasError('required')" class="error">
+                        Email is required.
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Password">
+                    <p *ngIf="this.submitted && loginForm.controls['password'].hasError('required')" class="error">
+                        Password is required.
+                    </p>
+                </div>
+
+                <div class="forgot">
+                    <a routerLink="/register">Register</a>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
