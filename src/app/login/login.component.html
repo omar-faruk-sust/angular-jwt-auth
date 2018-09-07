@@ -10,16 +10,17 @@
 
                 <div class="form-group">
                     <input type="email" class="form-control" formControlName="email" id="inputEmail" placeholder="Email Address">
-                    <p *ngIf="this.submitted && loginForm.controls['email'].hasError('required')" class="error">
+                    <div *ngIf="this.submitted && loginForm.get('email').hasError('required')" class="is-invalid">
                         Email is required.
-                    </p>
+                    </div>
+
                 </div>
 
                 <div class="form-group">
                     <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Password">
-                    <p *ngIf="this.submitted && loginForm.controls['password'].hasError('required')" class="error">
+                    <div *ngIf="this.submitted && loginForm.get('password').hasError('required')" class="invalid">
                         Password is required.
-                    </p>
+                    </div>
                 </div>
 
                 <div class="forgot">

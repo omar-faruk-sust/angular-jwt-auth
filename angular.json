@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "jwt-auth": {
+    "angular-jwt-auth": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/jwt-auth",
+            "outputPath": "dist/angular-jwt-auth",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "jwt-auth:build"
+            "browserTarget": "angular-jwt-auth:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "jwt-auth:build:production"
+              "browserTarget": "angular-jwt-auth:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "jwt-auth:build"
+            "browserTarget": "angular-jwt-auth:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "jwt-auth-e2e": {
+    "angular-jwt-auth-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "jwt-auth:serve"
+            "devServerTarget": "angular-jwt-auth:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "jwt-auth:serve:production"
+              "devServerTarget": "angular-jwt-auth:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "jwt-auth"
+  "defaultProject": "angular-jwt-auth"
 }

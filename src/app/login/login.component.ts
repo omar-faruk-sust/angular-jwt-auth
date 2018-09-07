@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +9,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-   public loginForm: FormGroup;
+   public loginForm;
    public submitted: Boolean = false;
 
   constructor(
-        private authService: AuthService
+        private authService: AuthService,
+        private router: Router,
+        private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -20,9 +23,9 @@ export class LoginComponent implements OnInit {
   }
 
     private buildForm() {
-        this.loginForm = new FormGroup({
-            email: new FormControl('', [Validators.required]),
-            password: new FormControl('', [Validators.required])
+        this.loginForm = this.formBuilder.group({
+            email: this.formBuilder.control('', [Validators.required]),
+            password: this.formBuilder.control('', [Validators.required])
         });
     }
 
@@ -32,7 +35,17 @@ export class LoginComponent implements OnInit {
             this.submitted = false;
             this.authService.login(this.loginForm.value).subscribe(
                 data => {
-                    console.log(data);
+                    if (data.error_code === 40001) {
+                        console.log('error in username and password');
+                    } else {
+                        if (data.access_token) {
+                            localStorage.setItem('id_token', data.access_token);
+                            localStorage.setItem('jwt', data.access_token);
+                            this.router.navigate(['author/list']);
+                        } else {
+                            console.log('error in login');
+                        }
+                    }
                 },
                 err => {},
                 () => {}

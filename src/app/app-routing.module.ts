@@ -6,11 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent} from './registration/registration.component';
 import { AppComponent } from './app.component';
+import { adminRoutes } from './admin/admin.routes';
+import { JwtModule } from '@auth0/angular-jwt';
 
 const routes: Routes = [
-    { path: '', component: AppComponent },
+    { path: '', component: LoginComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegistrationComponent },
+    ...adminRoutes
 ];
 
 
@@ -21,7 +24,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
       RouterModule.forRoot(routes),
-      HttpClientModule
+      HttpClientModule,
+      JwtModule
   ],
 })
 
