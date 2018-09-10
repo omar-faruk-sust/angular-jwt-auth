@@ -19,4 +19,8 @@ export class AuthService {
         return this.http.post(this.apiAuth + '/login', values);
     }
 
+    public logout() {
+        return this.http.post(this.apiAuth + '/logout', []);
+    }
+
 }

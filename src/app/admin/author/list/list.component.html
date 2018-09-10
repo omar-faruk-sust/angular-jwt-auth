@@ -4,19 +4,27 @@
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Id#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Github</th>
+            <th scope="col">Twitter</th>
+            <th scope="col">Location</th>
+            <th scope="col">Last Article</th>
+            <th scope="col">Create At</th>
         </tr>
         </thead>
         <tbody>
 
-        <tr *ngFor="let author of authorList">
+        <tr *ngFor="let author of authorList.data">
             <th scope="row">{{author.id}}</th>
             <td>{{author.name}}</td>
             <td>{{author.email}}</td>
             <td>{{author.github}}</td>
+            <td>{{author.twitter}}</td>
+            <td>{{author.location}}</td>
+            <td>{{author.latest_article_published}}</td>
+            <td>{{author.created_at}}</td>
         </tr>
 
         </tbody>

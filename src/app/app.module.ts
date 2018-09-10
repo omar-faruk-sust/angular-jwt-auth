@@ -8,7 +8,10 @@ import {RegistrationComponent} from './registration/registration.component';
 import { AdminModule } from './admin/admin.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import {ErrorInterceptor} from './helpers/error.interceptor';
 
 export function tokenGetter() {
     return localStorage.getItem('jwt');
@@ -36,7 +39,11 @@ export function tokenGetter() {
         HttpClientModule,
         AppRoutingModule
     ],
-    providers: [JwtHelperService],
+    providers: [
+        JwtHelperService,
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

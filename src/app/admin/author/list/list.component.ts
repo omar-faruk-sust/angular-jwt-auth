@@ -23,7 +23,6 @@ export class ListComponent implements OnInit {
       this.authorService.getAuthorList().subscribe(
           data => {
               if (data) {
-                  console.log(data);
                   this.authorList = data;
               } else {
 
