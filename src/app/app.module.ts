@@ -11,7 +11,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 
 export function tokenGetter() {
-    return localStorage.getItem('access_token');
+    return localStorage.getItem('jwt');
 }
 
 @NgModule({
@@ -29,7 +29,7 @@ export function tokenGetter() {
         JwtModule.forRoot({
             config: {
                 tokenGetter: tokenGetter,
-                whitelistedDomains: ['localhost:4200'],
+                whitelistedDomains: ['http://jumen-jwt-auth.local/auth/login'],
                 blacklistedRoutes: ['localhost:4200/auth/login','localhost:4200/auth/register']
             }
         }),

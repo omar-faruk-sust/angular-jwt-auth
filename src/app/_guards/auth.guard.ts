@@ -11,18 +11,16 @@ export class AuthGuard implements CanActivate {
     ) { }
 
     public canActivate() {
-        if (this.loggedIn()) {
+        console.log(this.loggedIn());
+        if (this.loggedIn() == false) {
             return true;
         }
+
         this.router.navigate(['/login']);
         return false;
     }
 
     public loggedIn() {
-        this.jwtHelper.isTokenExpired();
-    }
-
-    tokenGetter() {
-        return localStorage.getItem('jwt');
+        return this.jwtHelper.isTokenExpired();
     }
 }

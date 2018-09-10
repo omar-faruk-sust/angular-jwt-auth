@@ -1,52 +1,25 @@
-<p>
-  list works!
-</p>
-<p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p><p>
-  list works!
-</p>
+<div class="row" style="padding-top: 80px; padding-left: 100px;">
+
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let author of authorList">
+            <th scope="row">{{author.id}}</th>
+            <td>{{author.name}}</td>
+            <td>{{author.email}}</td>
+            <td>{{author.github}}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
