@@ -1,5 +1,8 @@
 <div class="row" style="padding-top: 80px; padding-left: 100px;">
 
+    <div class="row" style="padding-bottom: 10px;padding-left: 14px;">
+        <a routerLink="/author/add"><button type="button" class="btn btn-dark">Add Author</button></a>
+    </div>
 
     <table class="table">
         <thead class="thead-dark">
@@ -16,7 +19,7 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let author of authorList.data">
+        <tr *ngFor="let author of authorList">
             <th scope="row">{{author.id}}</th>
             <td>{{author.name}}</td>
             <td>{{author.email}}</td>
@@ -24,7 +27,7 @@
             <td>{{author.twitter}}</td>
             <td>{{author.location}}</td>
             <td>{{author.latest_article_published}}</td>
-            <td>{{author.created_at | dateTimeFormat}}</td>
+            <td>{{author.created_at.date | dateTimeFormat}}</td>
         </tr>
 
         </tbody>

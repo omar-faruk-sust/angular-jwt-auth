@@ -1,13 +1,15 @@
 import {Routes, Router, CanActivate, RouterModule} from '@angular/router';
-import { AuthGuard } from '../_guards/index';
+import {AuthGuard} from '../_guards/index';
 import {ListComponent} from './author/list/list.component';
-import { AdminComponent } from './admin.component';
+import {AddComponent} from './author/add/add.component';
+import {AdminComponent} from './admin.component';
 
 export const adminRoutes: Routes = [{
-    path: '',
+    path: 'author',
     component: AdminComponent,
     children: [
-        {path: 'author/list', component: ListComponent}
+        {path: 'list', component: ListComponent},
+        {path: 'add', component: AddComponent}
     ],
     canActivate: [AuthGuard]
 }];

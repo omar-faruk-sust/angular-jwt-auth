@@ -9,7 +9,7 @@ export const environment = {
   API: {
       'apiBase': BASE_URL,
       'apiAuth': BASE_URL + 'auth',
-      'apiAuthor': BASE_URL + '/api'
+      'apiAuthor': BASE_URL + 'api'
   }
 };
 

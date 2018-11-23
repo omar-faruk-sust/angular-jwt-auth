@@ -10,11 +10,15 @@ import {SidebarComponent} from './sidebar/sidebar.component';
 
 import {DateFormatPipe} from '../_pipes/date.format.pipe';
 import {DateTimeFormatPipe} from '../_pipes/date.time.format.pipe';
+import { AddComponent } from './author/add/add.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     declarations: [
         AdminComponent,
@@ -23,7 +27,8 @@ import {DateTimeFormatPipe} from '../_pipes/date.time.format.pipe';
         SidebarComponent,
         ListComponent,
         DateFormatPipe,
-        DateTimeFormatPipe],
+        DateTimeFormatPipe,
+        AddComponent],
     providers: [
         AuthGuard
     ],

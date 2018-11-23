@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthorService } from './author.service';
+import { AuthorService } from '../author.service';
 
 @Component({
   selector: 'app-list',
@@ -21,9 +21,9 @@ export class ListComponent implements OnInit {
 
   public getAuthorData() {
       this.authorService.getAuthorList().subscribe(
-          data => {
-              if (data) {
-                  this.authorList = data;
+          res => {
+              if (res['data']) {
+                  this.authorList = res['data'];
               } else {
 
               }
